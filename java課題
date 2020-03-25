@@ -1,0 +1,77 @@
+package yusuke_super_intro;
+
+//パッケージ文「Scanner」を記述　5.4
+import java.util.Scanner;
+
+/*    */ public class HighAndLowS07 {
+	//1~9の範囲で、数の大小を当てるゲーム。
+	//右側の数を左側より大きいと予想する場合はh、
+	//小さいと予想する場合はlを選択する。
+	//データ型、String型　5.4.2
+/*    */    public static void main(String[] args) {
+	//Scannerに変数scを入力、new Scanner(System.in)にてキーボード入力準備の下地づくり
+/*  9 */       Scanner sc = new Scanner(System.in);
+/*    */
+/* 11 */       System.out.print("**************\n");
+/* 12 */       System.out.print("* High & Low *\n");
+/* 13 */       System.out.print("**************\n");
+/*    */
+//while文を用いて、ループ処理の条件式を設定。
+//resultの結果がselectに定義した値と同じであればループ。。6.5.2
+/*    */       while(true) {
+	//int型変数でleftCard,rightCardを定義。
+	//random変数を定義し、*「9.0D+1」でそれぞれに1～9の値がランダムで表示される。
+/* 17 */          int leftCard = (int)(Math.random() * 9.0D) + 1;
+/*    */
+/* 19 */          int rightCard = (int)(Math.random() * 9.0D) + 1;
+/*    */
+/* 21 */          System.out.print(" \n[問題表示]\n");
+/* 22 */          System.out.print("***** *****\n");
+/* 23 */          System.out.print("*   * *   *\n");
+/* 24 */          System.out.print("* " + leftCard + " * * * *\n");
+/* 25 */          System.out.print("*   * *   *\n");
+/* 26 */          System.out.print("***** *****\n");
+/*    */
+//入力・変数selectを定義。sc.nextLine()で値を入力　5.4.2
+/* 28 */          System.out.print("High or Low ? (h/l) > ");
+/* 29 */          String select = sc.nextLine();
+/* 30 */          if(select.equals("h")) {
+/* 31 */             System.out.print("→Highを選択しました。\n");
+/* 32 */          } else if(select.equals("l")) {
+/* 33 */             System.out.print("→Lowを選択しました。\n");
+/*    */          } else {
+/* 35 */             System.out.print("→hかlを選択してください。\n");
+/*    */          }
+/*    */
+/* 38 */          System.out.print(" [結果表示]\n");
+/* 39 */          System.out.print("***** *****\n");
+/* 40 */          System.out.print("*   * *   *\n");
+/* 41 */          System.out.print("* " + leftCard + " * * " + rightCard + " *\n");
+/* 42 */          System.out.print("*   * *   *\n");
+/* 43 */          System.out.print("***** *****\n");
+/*    *///変数resultを定義。String型変数に代入
+//resultにhが代入された場合、hのときleft<rightであればあるいはlのとき逆であれば
+/*    */          String result;
+/* 46 */          if(leftCard < rightCard) {
+/* 47 */             result = "h";
+/*    */
+/* 49 */          } else if(leftCard > rightCard) {
+/* 50 */             result = "l";
+/*    */          } else {
+/* 52 */             result = select;
+/*    */          }
+/* 54 */          if(result.equals(select)) {
+/* 55 */          System.out.print("you win!");
+					}else {
+/*    */
+/* 57 */             System.out.print("you lose!");
+/*    */
+/*    */
+/*    */
+/* 61 */             System.out.print("\n**ゲーム終了**");
+/*    *///returnにてループするが、65行以降の文章に入力が発生しない為、プログラムを閉じる。
+/* 63 */             return;
+/*    */       }
+/*    */    }
+/*    */ }
+}
