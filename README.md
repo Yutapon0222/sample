@@ -1,2 +1,2 @@
 # sample
-my first time github
+成果物の一例です。
